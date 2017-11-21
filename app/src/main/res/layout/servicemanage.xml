@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/inoutitem"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_weight="3">
+        <TextView
+            android:id="@+id/inouttitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:text="维修管理"
+            android:textSize="40sp"
+            android:textColor="#000"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/tvProjectName"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txtInOutMoney"
+                android:layout_alignBottom="@+id/txtInOutMoney"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="16dp"
+                android:text="项目名："
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@id/txtInOutMoney"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tvProjectName"
+                android:inputType="number"
+                android:maxLength="9"
+                android:numeric="integer" />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txtPrice"
+                android:layout_alignBottom="@+id/txtPrice"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="16dp"
+                android:text="价    格："
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@id/txtPrice"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="9"
+                android:numeric="integer"
+                android:layout_marginTop="39dp"
+                android:layout_below="@+id/txtInOutMoney"
+                android:layout_toRightOf="@+id/tvPrice"
+                android:layout_toEndOf="@+id/tvPrice" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_weight="3">
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="10dp">
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnInOutDelete"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:text="删除"/>
+            <Button
+
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnInOutEdit"
+                android:layout_toLeftOf="@id/btnInOutDelete"
+                android:text="修改"/>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
