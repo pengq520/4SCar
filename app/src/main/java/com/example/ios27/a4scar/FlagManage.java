@@ -1,4 +1,4 @@
-package com.example.ios27.accountms;
+package com.example.ios27.a4scar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.ios27.accountms.dao.FlagDAO;
-import com.example.ios27.accountms.model.Tb_flag;
+import com.example.ios27.a4scar.dao.FlagDAO;
+import com.example.ios27.a4scar.model.Tb_flag;
 
 public class FlagManage extends AppCompatActivity {
     EditText txtFlag;//创建EditText对象
@@ -21,7 +21,7 @@ public class FlagManage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flagmanage);
 
-        txtFlag = (EditText)findViewById(R.id.txtFlagManage);//获取便签文本框
+        txtFlag = (EditText)findViewById(R.id.txtFlag);//获取便签文本框
         btnEdit = (Button)findViewById(R.id.btnFlagManageEdit);//获取修改按钮
         btnDel = (Button)findViewById(R.id.btnFlagManageDelete);//获取删除按钮
 
