@@ -17,16 +17,24 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.example.ios27.a4scar.dao.FlagDAO;
-import com.example.ios27.a4scar.dao.InaccountDAO;
-import com.example.ios27.a4scar.dao.OutaccountDAO;
+import com.example.ios27.a4scar.dao.DBOpenHelper;
+import com.example.ios27.a4scar.dao.MaintaincontentDAO;
+import com.example.ios27.a4scar.dao.maintainDAO;
+import com.example.ios27.a4scar.dao.PwdDAO;
+import com.example.ios27.a4scar.dao.ServicecontentDAO;
+import com.example.ios27.a4scar.dao.ServiceDAO;
 import com.example.ios27.a4scar.model.Tb_flag;
-import com.example.ios27.a4scar.model.Tb_inaccount;
-import com.example.ios27.a4scar.model.Tb_outaccount;
+import com.example.ios27.a4scar.model.Tb_maintain;
+import com.example.ios27.a4scar.model.Tb_pwd;
+import com.example.ios27.a4scar.model.Tb_maintaincontent;
+import com.example.ios27.a4scar.model.tb_service;
+import com.example.ios27.a4scar.model.Tb_servicecontent;
 
 import java.util.List;
 
-import static com.example.ios27.a4scar.Inaccountinfo.FLAG;
+import static com.example.ios27.a4scar.Showinfo.FLAG;
 import static com.example.ios27.a4scar.R.id.btnflaginfo;
 import static com.example.ios27.a4scar.R.id.btnoutinfo;
 
@@ -54,7 +62,7 @@ public class Showinfo extends Activity {
             @Override
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
-                ShowInfo(R.id.btnoutinfo);// 显示支出信息
+                ShowInfo(R.id.btnoutinfo);// 显示维修信息
             }
         });
 
@@ -62,7 +70,7 @@ public class Showinfo extends Activity {
             @Override
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
-                ShowInfo(R.id.btnininfo);// 显示收入信息
+                ShowInfo(R.id.btnininfo);// 显示保养信息
             }
         });
         btnflaginfo.setOnClickListener(new View.OnClickListener() {// 为便签信息按钮设置监听事件
@@ -95,21 +103,21 @@ public class Showinfo extends Activity {
     }
 
     private void ShowInfo(int intType) {// 用来根据传入的管理类型，显示相应的信息
-        String[] strInfos = null;// 定义字符串数组，用来存储收入信息
+        String[] strInfos = null;// 定义字符串数组，用来存储维修保养信息
         ArrayAdapter<String> arrayAdapter = null;// 创建ArrayAdapter对象
         switch (intType) {// 以intType为条件进行判断
             case R.id.btnoutinfo:// 如果是btnoutinfo按钮
                 strType = "btnoutinfo";// 为strType变量赋值
-                OutaccountDAO outaccountinfo = new OutaccountDAO(Showinfo.this);// 创建OutaccountDAO对象
+                ServiceDAO outaccountinfo = new ServiceDAO(Showinfo.this);// 创建OutaccountDAO对象
                 // 获取所有支出信息，并存储到List泛型集合中
-                List<Tb_outaccount> listoutinfos = outaccountinfo.getScrollData(0,
+                List<tb_service> listoutinfos = outaccountinfo.getScrollData(0,
                         (int) outaccountinfo.getCount());
                 strInfos = new String[listoutinfos.size()];// 设置字符串数组的长度
                 int i = 0;// 定义一个开始标识
-                for (Tb_outaccount tb_outaccount : listoutinfos) {// 遍历List泛型集合
+                for (tb_service tb_outaccount : listoutinfos) {// 遍历List泛型集合
                     // 将支出相关信息组合成一个字符串，存储到字符串数组的相应位置
-                    strInfos[i] = tb_outaccount.getid() + "|"
-                            + tb_outaccount.getType() + " "
+                    strInfos[i] = tb_outaccount.getCarID() + "|"
+                            + tb_outaccount.getUservice() + " "
                             + String.valueOf(tb_outaccount.getMoney()) + "元     "
                             + tb_outaccount.getTime();
                     i++;// 标识加1
@@ -117,16 +125,16 @@ public class Showinfo extends Activity {
                 break;
             case R.id.btnininfo:// 如果是btnininfo按钮
                 strType = "btnininfo";// 为strType变量赋值
-                InaccountDAO inaccountinfo = new InaccountDAO(Showinfo.this);// 创建InaccountDAO对象
+                ServiceDAO inaccountinfo = new ServiceDAO(Showinfo.this);// 创建InaccountDAO对象
                 // 获取所有收入信息，并存储到List泛型集合中
-                List<Tb_inaccount> listinfos = inaccountinfo.getScrollData(0,
+                List<tb_service> listinfos = inaccountinfo.getScrollData(0,
                         (int) inaccountinfo.getCount());
                 strInfos = new String[listinfos.size()];// 设置字符串数组的长度
                 int m = 0;// 定义一个开始标识
-                for (Tb_inaccount tb_inaccount : listinfos) {// 遍历List泛型集合
+                for (tb_service tb_inaccount : listinfos) {// 遍历List泛型集合
                     // 将收入相关信息组合成一个字符串，存储到字符串数组的相应位置
-                    strInfos[m] = tb_inaccount.getid() + "|"
-                            + tb_inaccount.getType() + " "
+                    strInfos[m] = tb_inaccount.getCarID() + "|"
+                            + tb_inaccount.getUservice() + " "
                             + String.valueOf(tb_inaccount.getMoney()) + "元     "
                             + tb_inaccount.getTime();
                     m++;// 标识加1
