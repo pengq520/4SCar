@@ -106,10 +106,10 @@ public class Showinfo extends Activity {
         String[] strInfos = null;// 定义字符串数组，用来存储维修保养信息
         ArrayAdapter<String> arrayAdapter = null;// 创建ArrayAdapter对象
         switch (intType) {// 以intType为条件进行判断
-            case R.id.btnoutinfo:// 如果是btnoutinfo按钮
+            case R.id.btnoutinfo:// 维修记录
                 strType = "btnoutinfo";// 为strType变量赋值
                 ServiceDAO outaccountinfo = new ServiceDAO(Showinfo.this);// 创建OutaccountDAO对象
-                // 获取所有支出信息，并存储到List泛型集合中
+                // 获取所有维修信息，并存储到List泛型集合中
                 List<tb_service> listoutinfos = outaccountinfo.getScrollData(0,
                         (int) outaccountinfo.getCount());
                 strInfos = new String[listoutinfos.size()];// 设置字符串数组的长度
@@ -123,24 +123,24 @@ public class Showinfo extends Activity {
                     i++;// 标识加1
                 }
                 break;
-            case R.id.btnininfo:// 如果是btnininfo按钮
+            case R.id.btnininfo:// 保养记录
                 strType = "btnininfo";// 为strType变量赋值
-                ServiceDAO inaccountinfo = new ServiceDAO(Showinfo.this);// 创建InaccountDAO对象
-                // 获取所有收入信息，并存储到List泛型集合中
-                List<tb_service> listinfos = inaccountinfo.getScrollData(0,
+                maintainDAO inaccountinfo = new maintainDAO(Showinfo.this);// 创建InaccountDAO对象
+                // 获取所有保养信息，并存储到List泛型集合中
+                List<Tb_maintain> listinfos = inaccountinfo.getScrollData(0,
                         (int) inaccountinfo.getCount());
                 strInfos = new String[listinfos.size()];// 设置字符串数组的长度
                 int m = 0;// 定义一个开始标识
-                for (tb_service tb_inaccount : listinfos) {// 遍历List泛型集合
+                for (Tb_maintain tb_inaccount : listinfos) {// 遍历List泛型集合
                     // 将收入相关信息组合成一个字符串，存储到字符串数组的相应位置
                     strInfos[m] = tb_inaccount.getCarID() + "|"
-                            + tb_inaccount.getUservice() + " "
+                            + tb_inaccount.getUmaintain() + " "
                             + String.valueOf(tb_inaccount.getMoney()) + "元     "
                             + tb_inaccount.getTime();
                     m++;// 标识加1
                 }
                 break;
-            case R.id.btnflaginfo:// 如果是btnflaginfo按钮
+            case R.id.btnflaginfo:// 备忘录
                 strType = "btnflaginfo";// 为strType变量赋值
                 FlagDAO flaginfo = new FlagDAO(Showinfo.this);// 创建FlagDAO对象
                 // 获取所有便签信息，并存储到List泛型集合中
