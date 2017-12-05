@@ -1,16 +1,15 @@
 <resources>
 <string name="app_name">4SCar</string>
 <string name="login">登录</string>
-<string name="infomanage">新增维修</string>
-<string name="accountflag">新增保养</string>
-<string name="addinaccount">维修记录</string>
-<string name="inaccount">保养记录</string>
-<string name="flagmanage">数据管理</string>
-<string name="inaccountinfo">维修项目</string>
-<string name="outaccount">保养项目</string>
+<string name="">新增维修</string>
+<string name="">新增保养</string>
+<string name="servicemanage">维修记录</string>
+<string name="upkeepmanage">保养记录</string>
+<string name="infomanage">数据管理</string>
+<string name="serviceproject">维修项目</string>
+<string name="upkeepproject">保养项目</string>
 <string name="mainactivity">4SCar</string>
-<string name="showinfo">备忘录</string>
-<string name="sysset">系统设置</string>
-<string name="exit">退出</string>
+<string name="flagmanage">备忘录</string>
+
 
 </resources>
