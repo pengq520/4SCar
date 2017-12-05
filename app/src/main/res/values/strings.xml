@@ -1,8 +1,7 @@
 <resources>
 <string name="app_name">4SCar</string>
 <string name="login">登录</string>
-<string name="">新增维修</string>
-<string name="">新增保养</string>
+
 <string name="servicemanage">维修记录</string>
 <string name="upkeepmanage">保养记录</string>
 <string name="infomanage">数据管理</string>
