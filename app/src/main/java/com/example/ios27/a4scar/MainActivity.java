@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
@@ -19,10 +18,10 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     GridView gvInfo;//创建GridView对象
-    String[] titles=new String[]{"新增支出","新增收入","我的支出","我的收入","数据管理","系统设置","收支便签","退出"
+    String[] titles=new String[]{"新增维修","新增保养","维修记录","保养记录","数据管理","维修项目","保养项目","系统设置","忘备录","退出"
     };//定义字符串数组，储存系统功能的文本
-    int[] images=new int[]{R.drawable.add_out_account,R.drawable.add_in_account,R.drawable.up,R.drawable.add,
-            R.drawable.data_manage,R.drawable.shizhi,R.drawable.account_flag,R.drawable.exit};//定义int数组，存储功能对应的图标
+    int[] images=new int[]{R.drawable.add1,R.drawable.add2,R.drawable.weixiu,R.drawable.baoyang,
+            R.drawable.data_manage,R.drawable.xiangmu1,R.drawable.xiangmu2,R.drawable.shizhi,R.drawable.account_flag,R.drawable.exit};//定义int数组，存储功能对应的图标
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,37 +36,37 @@ public class MainActivity extends AppCompatActivity {
                 switch (i){
                     case 0:
                         //使用AddOutaccount窗口初始化Intent
-                        intent=new Intent(MainActivity.this,OutInaccount.class);
+                       // intent=new Intent(MainActivity.this,OutInaccount.class);
                         startActivity(intent);//打开AddOutaccount
                         break;
                     case 1:
                         //使用AddInaccount窗口初始化Intent
-                        intent=new Intent(MainActivity.this,AddInaccount.class);
+                       // intent=new Intent(MainActivity.this,AddInaccount.class);
                         startActivity(intent);//打开AddOutaccount
                         break;
                     case 2:
                         //使用Outaccountinfo窗口初始化Intent
-                        intent=new Intent(MainActivity.this,Outaccountinfo.class);
+                       // intent=new Intent(MainActivity.this,Outaccountinfo.class);
                         startActivity(intent);//打开AddOutaccount
                         break;
                     case 3:
                         //使用Inaccountinfo窗口初始化Intent
-                        intent=new Intent(MainActivity.this,Inaccountinfo.class);
+                       // intent=new Intent(MainActivity.this,Inaccountinfo.class);
                         startActivity(intent);//打开AddOutaccount
                         break;
                     case 4:
                         //使用Showinfo窗口初始化Intent
-                        intent=new Intent(MainActivity.this,Showinfo.class);
+                       // intent=new Intent(MainActivity.this,Showinfo.class);
                         startActivity(intent);//打开AddOutaccount
                         break;
                     case 5:
                         //使用Sysset窗口初始化Intent
-                        intent=new Intent(MainActivity.this,Sysset.class);
+                       // intent=new Intent(MainActivity.this,Sysset.class);
                         startActivity(intent);//打开AddOutaccount
                         break;
                     case 6:
                         //使用Accountflag窗口初始化Intent
-                        intent=new Intent(MainActivity.this,Accountflag.class);
+                        //intent=new Intent(MainActivity.this,Accountflag.class);
                         startActivityForResult(intent,1);//打开AddOutaccount
                         break;
                     case 7:
